@@ -32,21 +32,21 @@ namespace WebServiceRGS.Tester
             
             //ReportContainer///////////////////////////////////////////////////////////////////////////////
             reportContainer.CredentialType = CredentialType.CustomCredential;
-            reportContainer.ReportUserLogin = "Srv_reporting";
-            reportContainer.ReportUserPassword = "B53k9js&";
-            reportContainer.NetworkDomain = "PHARMA";
-            reportContainer.ReportServiceUrl = "http://192.168.0.155/ReportServer/ReportService2005.asmx";
-            reportContainer.ReportExecutionUrl = "http://192.168.0.155/ReportServer/ReportExecution2005.asmx";
+            reportContainer.ReportUserLogin = "YourReportServicesUser";
+            reportContainer.ReportUserPassword = "######";
+            reportContainer.NetworkDomain = "ReportServiceNetworkDomain";
+            reportContainer.ReportServiceUrl = "http://192.168.0.120/ReportServer/ReportService2005.asmx";
+            reportContainer.ReportExecutionUrl = "http://192.168.0.120/ReportServer/ReportExecution2005.asmx";
             reportContainer.LogReports = true;
             ////////////////////////////////////////////////////////////////////////////////////////////////
             
             //Report////////////////////////////////////////////////////////////////////////////////////////
             Report report = new Report();
-            report.ReportName = "Homologacao/Vitrine/AuditoriaAcordoPromocionalBandeira";
+            report.ReportName = "REPORTS/TESTS/MyReport";
             report.ReportFormat = ReportFormat.EXCEL;
 
-            report.Parameters.Add("DtInicio", "2012-01-01");
-            report.Parameters.Add("DtFim", "2012-04-30");
+            report.Parameters.Add("Param1", "2012-01-01");
+            report.Parameters.Add("Param2", "value");
 
             report.StoreReportInDB = true;
             ////////////////////////////////////////////////////////////////////////////////////////////////
