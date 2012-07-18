@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RenderReports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serializedReportContainer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenderReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RenderReportsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFileByGUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reportGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="deleteFile" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportFileByGUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportFileByGUIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenderReportByGUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reportGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RenderReportByGUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RenderReportByGUIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RenderReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:RenderReports" />
+  </wsdl:message>
+  <wsdl:message name="RenderReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:RenderReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFileByGUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportFileByGUID" />
+  </wsdl:message>
+  <wsdl:message name="GetReportFileByGUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportFileByGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="RenderReportByGUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:RenderReportByGUID" />
+  </wsdl:message>
+  <wsdl:message name="RenderReportByGUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:RenderReportByGUIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RGSWsSoap">
+    <wsdl:operation name="RenderReports">
+      <wsdl:input message="tns:RenderReportsSoapIn" />
+      <wsdl:output message="tns:RenderReportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFileByGUID">
+      <wsdl:input message="tns:GetReportFileByGUIDSoapIn" />
+      <wsdl:output message="tns:GetReportFileByGUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RenderReportByGUID">
+      <wsdl:input message="tns:RenderReportByGUIDSoapIn" />
+      <wsdl:output message="tns:RenderReportByGUIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RGSWsSoap" type="tns:RGSWsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RenderReports">
+      <soap:operation soapAction="http://tempuri.org/RenderReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFileByGUID">
+      <soap:operation soapAction="http://tempuri.org/GetReportFileByGUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenderReportByGUID">
+      <soap:operation soapAction="http://tempuri.org/RenderReportByGUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RGSWsSoap12" type="tns:RGSWsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RenderReports">
+      <soap12:operation soapAction="http://tempuri.org/RenderReports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportFileByGUID">
+      <soap12:operation soapAction="http://tempuri.org/GetReportFileByGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenderReportByGUID">
+      <soap12:operation soapAction="http://tempuri.org/RenderReportByGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RGSWs">
+    <wsdl:port name="RGSWsSoap" binding="tns:RGSWsSoap">
+      <soap:address location="http://localhost:56551/RGSWs.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RGSWsSoap12" binding="tns:RGSWsSoap12">
+      <soap12:address location="http://localhost:56551/RGSWs.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
